@@ -1,0 +1,6 @@
+Consumer/events_rabbit/mnesia/rabbit@7e6970a3e229/quorum/rabbit@7e6970a3e229/00000001.wal filter=lfs diff=lfs merge=lfs -text
+Productor/events_rabbit/mnesia/rabbit@7e6970a3e229/quorum/rabbit@7e6970a3e229/00000001.wal filter=lfs diff=lfs merge=lfs -text
+Productor/events_rabbit/mnesia/rabbit@4a65cf0e991c/quorum/rabbit@4a65cf0e991c/00000003.wal filter=lfs diff=lfs merge=lfs -text
+Productor/events_rabbit/mnesia/rabbit@4a94dc65f094/quorum/rabbit@4a94dc65f094/00000001.wal filter=lfs diff=lfs merge=lfs -text
+File filter=lfs diff=lfs merge=lfs -text
+Productor/events_rabbit/mnesia/rabbit@abc6baf65d6f/quorum/rabbit@abc6baf65d6f/00000002.wal filter=lfs diff=lfs merge=lfs -text

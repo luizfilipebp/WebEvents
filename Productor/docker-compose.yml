@@ -1,0 +1,32 @@
+version: '3.7'
+x-rabbitmq-variables: &rabbit-variables
+  SPRING_RABBITMQ_HOST: rabbitMq
+  SPRING_RABBITMQ_PORT: 5672
+  SPRING_RABBITMQ_USERNAME: admin
+  SPRING_RABBITMQ_PASSWORD: admin
+
+services:
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitMq
+    restart: always
+    ports:
+      - 5672:5672
+      - 15672:15672
+    volumes:
+      - ./events_rabbit:/var/lib/rabbitmq/
+    environment:
+      - RABBITMQ_DEFAULT_USER=admin
+      - RABBITMQ_DEFAULT_PASS=admin
+
+  webEventsProducer:
+    image: luizfilipebp/microservise.webevents.producer:0.0.1-SNAPSHOT
+    container_name: ProductorApplication
+    ports:
+      - "3000:3000"
+    environment:
+      <<: *rabbit-variables
+    depends_on:
+      - rabbitmq
+    links:
+      - rabbitmq
