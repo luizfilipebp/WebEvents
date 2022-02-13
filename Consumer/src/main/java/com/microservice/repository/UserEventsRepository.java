@@ -4,6 +4,8 @@ import com.microservice.models.UserEvents;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.UUID;
+
 @Repository
-public interface UserEventsRepository extends JpaRepository<UserEvents, Long> {
+public interface UserEventsRepository extends JpaRepository<UserEvents, UUID> {
 }

@@ -9,6 +9,6 @@ import org.mapstruct.factory.Mappers;
 public abstract class UserEventsMapper {
     public static final UserEventsMapper INSTANCE = Mappers.getMapper(UserEventsMapper.class);
 
-    public abstract UserEvents toUserPost(UserEventsPostRequestBody userEventsPostRequestBody);
+    public abstract UserEvents toUserEvents (UserEventsPostRequestBody userEventsPostRequestBody);
 
 }

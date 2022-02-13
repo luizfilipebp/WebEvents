@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -21,7 +22,7 @@ public class UserService {
     private final UserRepository userRepository;
 
     // FIND ONE
-    public User findByIDOrThrowBadRequestException(Long id){
+    public User findByIDOrThrowBadRequestException(UUID id){
         return userRepository.findById(id)
                 .orElseThrow(() -> new BadRequestException("User not Found"));
     }
@@ -64,7 +65,7 @@ public class UserService {
     }
 
     //DELETE
-    public void delete (Long id) {
+    public void delete (UUID id) {
         userRepository.delete(findByIDOrThrowBadRequestException(id));
     }
 

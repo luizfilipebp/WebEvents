@@ -10,6 +10,6 @@ import org.mapstruct.factory.Mappers;
 public abstract class EventMapper {
     public static final EventMapper INSTANCE = Mappers.getMapper(EventMapper.class);
 
-    public abstract Event toEventPost (EventPostRequestBody eventPostRequestBody);
-    public abstract Event toEventPut (EventPutRequestBody eventPutRequestBody);
+    public abstract Event toEvent (EventPostRequestBody eventPostRequestBody);
+    public abstract Event toEvent (EventPutRequestBody eventPutRequestBody);
 }

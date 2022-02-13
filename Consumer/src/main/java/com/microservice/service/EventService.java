@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -21,7 +22,7 @@ public class EventService {
     private final EventRepository repository;
 
     // FIND ONE
-    public Event findByIDOrThrowBadRequestException(Long id){
+    public Event findByIDOrThrowBadRequestException(UUID id){
         return repository.findById(id)
                 .orElseThrow(() -> new BadRequestException("Event not Found"));
     }
@@ -33,18 +34,18 @@ public class EventService {
             Event event = new Event(eventPutRequestBody.getId(), eventPutRequestBody.getType());
             return repository.save(event);
         }
-        return EventMapper.INSTANCE.toEventPut(eventPutRequestBody);
+        return EventMapper.INSTANCE.toEvent(eventPutRequestBody);
     }
 
     //CREATE
     @Transactional
     public Event save(EventPostRequestBody eventPostRequestBody) {
-        return repository.save(EventMapper.INSTANCE.toEventPost(eventPostRequestBody));
+        return repository.save(EventMapper.INSTANCE.toEvent(eventPostRequestBody));
     }
 
     @Transactional
     public Event saveWithId(EventPutRequestBody eventPutRequestBody) {
-        return repository.save(EventMapper.INSTANCE.toEventPut(eventPutRequestBody));
+        return repository.save(EventMapper.INSTANCE.toEvent(eventPutRequestBody));
     }
 
     //READ
@@ -54,7 +55,7 @@ public class EventService {
 
 
     //DELETE
-    public void delete (Long id) {
+    public void delete (UUID id) {
         repository.delete(findByIDOrThrowBadRequestException(id));
     }
 

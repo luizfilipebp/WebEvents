@@ -4,12 +4,12 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Generated;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.Date;
+import java.util.UUID;
 
 @Data
 @AllArgsConstructor
@@ -19,8 +19,11 @@ import java.time.LocalDateTime;
 
 public class UserEvents{
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private UUID id;
+
     @Column
-    private LocalDateTime dateTime;
+    private Date dateTime;
 
     @ManyToOne
     private User user;

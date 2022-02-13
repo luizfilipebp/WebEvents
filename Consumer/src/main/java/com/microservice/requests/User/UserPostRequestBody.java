@@ -8,6 +8,8 @@ import lombok.Data;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
+import java.util.Date;
+import java.util.UUID;
 
 @Data
 @Builder
@@ -16,7 +18,7 @@ import java.time.LocalDateTime;
 public class UserPostRequestBody {
     @NotNull(message = "User id cannot be null")
     @Schema(description = "This is the User id", example = "1")
-    private Long id;
+    private UUID id;
 
     @NotEmpty(message = "User name cannot be empty")
     @Schema(description = "This is the User name", example = "Filipe")
@@ -24,5 +26,5 @@ public class UserPostRequestBody {
 
     @NotNull(message = "User registration date cannot be null")
     @Schema(description = "This is the User registration date", example = "1998-09-24T16:18:05.485Z")
-    private LocalDateTime registrationDate;
+    private Date registrationDate;
 }

@@ -3,25 +3,27 @@ package com.microservice.dto;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.Date;
+import java.util.UUID;
 
 
 public class UserEventsDto implements Serializable {
     // USER
-    private Long userId;
+    private UUID userId;
     private String userNickName;
-    private LocalDateTime userRegistrationDate;
+    private Date userRegistrationDate;
 
     // EVENT
-    private Long eventId;
+    private UUID eventId;
     private String eventType;
-    private LocalDateTime eventDateTime;
+    private Date eventDateTime;
 
-    public Long getUserId() {
+    //
+    public UUID getUserId() {
         return userId;
     }
 
-    // Getters and Setters
-    public void setUserId(Long userId) {
+    public void setUserId(UUID userId) {
         this.userId = userId;
     }
 
@@ -33,19 +35,19 @@ public class UserEventsDto implements Serializable {
         this.userNickName = userNickName;
     }
 
-    public LocalDateTime getUserRegistrationDate() {
+    public Date getUserRegistrationDate() {
         return userRegistrationDate;
     }
 
-    public void setUserRegistrationDate(LocalDateTime userRegistrationDate) {
+    public void setUserRegistrationDate(Date userRegistrationDate) {
         this.userRegistrationDate = userRegistrationDate;
     }
 
-    public Long getEventId() {
+    public UUID getEventId() {
         return eventId;
     }
 
-    public void setEventId(Long eventId) {
+    public void setEventId(UUID eventId) {
         this.eventId = eventId;
     }
 
@@ -57,11 +59,11 @@ public class UserEventsDto implements Serializable {
         this.eventType = eventType;
     }
 
-    public LocalDateTime getEventDateTime() {
+    public Date getEventDateTime() {
         return eventDateTime;
     }
 
-    public void setEventDateTime(LocalDateTime eventDateTime) {
+    public void setEventDateTime(Date eventDateTime) {
         this.eventDateTime = eventDateTime;
     }
 }

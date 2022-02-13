@@ -7,6 +7,7 @@ import lombok.Data;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import java.util.UUID;
 
 @Data
 @Builder
@@ -15,7 +16,7 @@ import javax.validation.constraints.NotNull;
 public class EventPostRequestBody {
     @NotNull(message = "Event id cannot be null")
     @Schema(description = "This is the Event id", example = "1")
-    private Long id;
+    private UUID id;
     @NotEmpty(message = "Event type cannot be empty")
     @Schema(description = "This is the event type", example = "click in buy product")
     private String type;

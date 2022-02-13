@@ -8,7 +8,7 @@ import lombok.Builder;
 import lombok.Data;
 
 import javax.validation.constraints.NotNull;
-import java.time.LocalDateTime;
+import java.util.Date;
 
 @Data
 @Builder
@@ -17,7 +17,7 @@ import java.time.LocalDateTime;
 public class UserEventsPostRequestBody {
     @NotNull(message = "User Events datetime cannot be null")
     @Schema(description = "This is the time when the user event occurred", example = "2022-02-08T16:18:05.485Z")
-    private LocalDateTime dateTime;
+    private Date dateTime;
 
     @NotNull(message = "The User cannot be empty")
     @Schema(description = "This is the user who made the event")

@@ -21,7 +21,7 @@ public class UserConsumer{
     private final EventService eventService;
 
     @RabbitListener(queues = "EVENT")
-    private void consumidor(UserEventsDto userDto){
+    private void consumer(UserEventsDto userDto){
         UserPutRequestBody userPut = new UserPutRequestBody(userDto.getUserId(),
                 userDto.getUserNickName(),
                 userDto.getUserRegistrationDate());

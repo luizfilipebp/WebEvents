@@ -4,10 +4,12 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 
+import java.util.UUID;
+
 @Data
 @AllArgsConstructor
 @Builder
 public class EventPutRequestBody {
-    private Long id;
+    private UUID id;
     private String type;
 }
